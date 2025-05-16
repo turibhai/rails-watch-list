@@ -2,9 +2,9 @@
   <h1><%= "#{@list.name} movies"%></h1>
   <h2>Bookmark</h2>
   <div>
-    <div class="card">
+    <div class="cards">
       <% @list.bookmarks.each do |bookmark| %>
-        <div><%=image_tag "#{bookmark.movie.poster_url}", alt: "#{bookmark.movie.title}" %></div>
+        <div class="card-trip"><%=image_tag "#{bookmark.movie.poster_url}", alt: "#{bookmark.movie.title}" %></div>
         <%=  "#{bookmark.comment}"  %>
         <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete?" }, class: 'btn btn-danger' %>
       <% end %>
