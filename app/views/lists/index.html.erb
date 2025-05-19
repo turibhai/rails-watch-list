@@ -1,19 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://th.bing.com/th/id/OIP.L-EVHfVTfmyDfRILwz_cSQHaEK?cb=iwc2&rs=1&pid=ImgDetMain);">
   <div class="container">
-    <h1>Lists <strong></h1>
-    </div>
+    <h1> <strong>Lists </strong></h1>
   </div>
-  <div class="container mt-3 d-flex-justify">
-    <ul >
-      <%@lists.each do |list|  %>
-        <li><%=link_to "#{list.name}", list_path(list), class:"btn btn-primary mt-3"  %></li>
-        <%# <li></label><%= cl_image_tag(list.photo.key, height: 300, width: 400, crop: :fill)%>
-        <% if list.photo.attached? %>
-          <%= cl_image_tag(list.photo.key, height: 300, width: 400, crop: :fill) %>
-        <% else %>
-          <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
-        <% end %>
-      <% end %>
-    </ul>
-    <%= link_to "Add list", new_list_path, class: "btn btn-secondary"  %>
+</div>
+<div class="container mt-3">
+  <div class="cards">
+    <% @lists.each do |list|  %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>)">
+        <%= @list.name %> >
+        <p><%= "#{list.name}" %></p>
+        <%= link_to '', list_path(list), class: "card-link"  %>
+      </div>
+    <% end %>
   </div>
+  <%= render "form", list: @list %>
+</div>
