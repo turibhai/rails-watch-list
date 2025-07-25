@@ -7,34 +7,34 @@
 }
 
 .fa-trash {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  color: $warning;
+  position: relative;
+  top: -56px;
+  right: 30px;
+  color: #f44336;
 }
 
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
-.card-trip > img {
-  height: 400px;
-  width: 100%;
+.card-trip>img {
+  height: 180px;
+
   object-fit: cover;
   align-items: center;
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
 }
@@ -66,9 +66,9 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
@@ -76,6 +76,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.bin {
+  color: #f44336;
+  position: relative;
+  top: 60px;
+  right: -108px;
 }
 
 // Smallest device

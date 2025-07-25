@@ -1,5 +1,8 @@
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit "Add", class: "btn btn-secondary" %>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <%= f.submit "Save", class: "btn btn-secondary" %>
+  </div>
 <% end %>
