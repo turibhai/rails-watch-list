@@ -1,17 +1,22 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://th.bing.com/th/id/OIP.L-EVHfVTfmyDfRILwz_cSQHaEK?cb=iwc2&rs=1&pid=ImgDetMain);">
-  <div class="container">
-    <h1> <strong>Lists </strong></h1>
+  <div class="container d-flex justify-content-around">
+    <h1> <strong>Make your own movies lists </strong></h1>
+    <div class="m-3">
+      <%= render "modal", list: @list %>
+    </div>
   </div>
 </div>
 <div class="container mt-3">
   <div class="cards">
     <% @lists.each do |list|  %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>)">
-        <%= @list.name %> >
+        <%= @list.name %>
         <p><%= "#{list.name}" %></p>
         <%= link_to '', list_path(list), class: "card-link"  %>
+        <%= link_to list_path(list), data: { turbo_method: :delete, turbo_confirm: "Do you want to delete the #{list.name} form your list? " } do %>
+          <i class="bin fa-solid fa-trash "></i>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <%= render "form", list: @list %>
 </div>
